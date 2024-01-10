@@ -44,3 +44,8 @@ def about(request):
 def finches_index(request):
     finches = Finch.objects.all()
     return render(request, "finches/index.html", {"finches": finches})
+
+
+def finches_detail(request, finch_id):  # Fixed the function signature
+    finch = Finch.objects.get(id=finch_id)  # Fixed the variable name
+    return render(request, "finches/detail.html", {"finch": finch})
