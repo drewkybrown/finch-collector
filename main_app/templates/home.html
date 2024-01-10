@@ -1,5 +1,57 @@
 {% extends 'base.html' %} {% block title %}Home - Finch Collector{% endblock %}
 {% block content %}
-<h1>Welcome to Finch Collector</h1>
-<p>This is the home page of the Finch Collector website.</p>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Welcome to Finch Collector</h1>
+  <p class="text-center lead">
+    Explore the fascinating world of finches with Finch Collector, your go-to
+    destination for everything about these charming and diverse birds. Whether
+    you're an avid birdwatcher, a dedicated ornithologist, or just someone who
+    loves the beauty and diversity of nature, Finch Collector offers a
+    comprehensive platform to learn, share, and discover the wonderful species
+    of finches. From detailed species profiles to interactive community
+    contributions, our website is designed to bring together finch enthusiasts
+    from all walks of life. Dive into our extensive database, share your own
+    finch sightings, and connect with a community that shares your passion for
+    these wonderful birds.
+  </p>
+  <div class="row mt-4">
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <img src="finch_image1.jpg" class="card-img-top" alt="Finch Image" />
+        <div class="card-body">
+          <h5 class="card-title">Discover Species</h5>
+          <p class="card-text">
+            Learn about the various finch species, their habitats, and
+            behaviors.
+          </p>
+          <a href="#" class="btn btn-primary">Explore</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <img src="finch_image2.jpg" class="card-img-top" alt="Finch Image" />
+        <div class="card-body">
+          <h5 class="card-title">Community Sightings</h5>
+          <p class="card-text">
+            Share and view finch sightings from our enthusiastic community.
+          </p>
+          <a href="#" class="btn btn-success">Participate</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <img src="finch_image3.jpg" class="card-img-top" alt="Finch Image" />
+        <div class="card-body">
+          <h5 class="card-title">Conservation Efforts</h5>
+          <p class="card-text">
+            Get involved in finch conservation and help protect these birds.
+          </p>
+          <a href="#" class="btn btn-warning">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
