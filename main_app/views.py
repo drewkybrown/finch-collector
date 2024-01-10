@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Finch
+
 finches = [
     {
         "name": "Lolo",
@@ -40,4 +42,5 @@ def about(request):
 
 # Add new view
 def finches_index(request):
+    finches = Finch.objects.all()
     return render(request, "finches/index.html", {"finches": finches})
