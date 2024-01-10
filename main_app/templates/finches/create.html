@@ -1,8 +1,22 @@
 <!-- finch_form.html -->
 {% extends 'base.html' %} {% block content %}
-<h2>Add Finch</h2>
-<form method="post" novalidate>
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Add Finch</button>
-</form>
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Add Finch</h2>
+  <form method="post" novalidate class="border p-4 bg-light shadow">
+    {% csrf_token %} {% for field in form %}
+    <div class="form-group">
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      {{ field }} {% if field.help_text %}
+      <small class="form-text text-muted">{{ field.help_text }}</small>
+      {% endif %} {% for error in field.errors %}
+      <div class="invalid-feedback d-block">{{ error }}</div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-success">Add Finch</button>
+    </div>
+  </form>
+</div>
 {% endblock %}

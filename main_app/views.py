@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Finch
 from django.urls import reverse_lazy
 
@@ -29,3 +29,9 @@ class FinchCreate(CreateView):
     fields = "__all__"
     success_url = "/finches/"
     template_name = "finches/create.html"
+
+
+class FinchDelete(DeleteView):
+    model = Finch
+    success_url = "/finches/"
+    template_name = "finches/delete.html"
