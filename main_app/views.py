@@ -35,3 +35,10 @@ class FinchDelete(DeleteView):
     model = Finch
     success_url = "/finches/"
     template_name = "finches/delete.html"
+
+
+class FinchUpdate(UpdateView):
+    model = Finch
+    fields = ["name", "species", "description", "age"]
+    template_name = "finches/update.html"
+    success_url = "/finches/"

@@ -21,8 +21,11 @@
           <p><strong>Description:</strong> {{ finch.description }}</p>
         </div>
 
-        <!-- Delete Button -->
+        <!-- Update and Delete Buttons -->
         <div class="card-footer">
+          <a href="{% url 'finches_update' finch.id %}" class="btn btn-primary"
+            >Update</a
+          >
           <a href="{% url 'finches_delete' finch.id %}" class="btn btn-danger"
             >Delete</a
           >
