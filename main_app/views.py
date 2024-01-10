@@ -1,38 +1,11 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
+from django.views.generic.edit import CreateView
 from .models import Finch
-
-finches = [
-    {
-        "name": "Lolo",
-        "species": "House Finch",
-        "description": "Small, brown, and commonly found in urban areas.",
-        "age": 3,
-    },
-    {
-        "name": "Sachi",
-        "species": "Zebra Finch",
-        "description": "Small, striped finch known for its cheerful singing.",
-        "age": 2,
-    },
-    {
-        "name": "Charlie",
-        "species": "Goldfinch",
-        "description": "Bright yellow plumage during breeding season.",
-        "age": 1,
-    },
-    {
-        "name": "Kiwi",
-        "species": "Gouldian Finch",
-        "description": "Colorful finch with distinct red, black, and green head.",
-        "age": 4,
-    },
-]
+from django.urls import reverse_lazy
 
 
 # Define the home view
 def home(request):
-    # Include an .html file extension - unlike when rendering EJS templates
     return render(request, "home.html")
 
 
@@ -46,6 +19,13 @@ def finches_index(request):
     return render(request, "finches/index.html", {"finches": finches})
 
 
-def finches_detail(request, finch_id):  # Fixed the function signature
-    finch = Finch.objects.get(id=finch_id)  # Fixed the variable name
+def finches_detail(request, finch_id):
+    finch = get_object_or_404(Finch, id=finch_id)
     return render(request, "finches/detail.html", {"finch": finch})
+
+
+class FinchCreate(CreateView):
+    model = Finch
+    fields = "__all__"
+    success_url = "/finches/"
+    template_name = "finches/create.html"

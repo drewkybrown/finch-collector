@@ -1,34 +1,27 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1 class="text-center mb-4">Finch Collection</h1>
-
-<div class="container">
+<div class="container mt-4">
+  <h1 class="text-center">{{ finch.name }}</h1>
   <div class="row justify-content-center">
-    {% for finch in finches %}
-    <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-4">
-      <div class="card w-100">
-        <!-- Optional Image Section -->
-        {% if finch.image_url %}
-        <img
-          src="{{ finch.image_url }}"
-          class="card-img-top"
-          alt="{{ finch.name }}"
-        />
-        {% endif %}
+    <div class="col-md-8">
+      <!-- Optional Image Section -->
+      {% if finch.image_url %}
+      <img
+        src="{{ finch.image_url }}"
+        class="card-img-top mb-3"
+        alt="{{ finch.name }}"
+      />
+      {% endif %}
 
-        <div class="card-body text-center">
-          <!-- Added text-center here -->
-          <h5 class="card-title">{{ finch.name }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ finch.species }}</h6>
-        </div>
-        <div class="card-footer d-flex justify-content-center">
-          <a href="{% url 'detail' finch.id %}" class="btn btn-primary"
-            >Details</a
-          >
+      <div class="card">
+        <div class="card-body">
+          <p><strong>Species:</strong> {{ finch.species }}</p>
+          <p><strong>Color:</strong> {{ finch.color }}</p>
+          <p><strong>Age:</strong> {{ finch.age }}</p>
+          <p><strong>Description:</strong> {{ finch.description }}</p>
         </div>
       </div>
     </div>
-    {% endfor %}
   </div>
 </div>
 

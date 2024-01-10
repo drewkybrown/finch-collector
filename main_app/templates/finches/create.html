@@ -1,0 +1,8 @@
+<!-- finch_form.html -->
+{% extends 'base.html' %} {% block content %}
+<h2>Add Finch</h2>
+<form method="post" novalidate>
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Add Finch</button>
+</form>
+{% endblock %}
